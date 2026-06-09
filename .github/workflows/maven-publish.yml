@@ -10,27 +10,27 @@ name: Build App with Docker Img
 
 on:
   push:
-    branches: [ "master" ]
+    branches: 
+      - '*'
   pull_request:
-    branches: [ "master" ]
+    branches: [ "*" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 8
-      uses: actions/setup-java@v4
-      with:
-        java-version: '8'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: |
-        mvn -B package --file pom.xml
-        mvn clean install
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag vrm-research:$(date +%s)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+          
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag vrm-research:$(date +%s)
