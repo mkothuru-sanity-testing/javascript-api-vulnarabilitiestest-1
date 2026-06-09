@@ -2,7 +2,7 @@
   
 # Verademo API  
   
-## What is this about  dxz
+## What is this about  dxzs
 Verademo API is very simple API for the Verademo Java Application that can be found here: [https://github.com/veracode/veraddemo-javascript-api](https://github.com/veracode/verademo-javascript-api). It allows you to use almost the same functionality as the web application, only as an API
 It's used as a demo application to run static code analysis, software composition anadlysis and dynamic API scanning. There will be findings for all differnt type of scanning technologies.  test test test
 Static Findings 
